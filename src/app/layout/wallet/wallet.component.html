@@ -1,0 +1,31 @@
+<div class="card mb-4 box-shadow" *ngIf="!_processing">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6>Your Subscription wallet</h6>
+    </div>
+    <div class="card-body" style="color: #222222">
+        <div style="font-size: 40px;"> {{walletBalance}} ETH</div>
+        <small class="text-muted">Avilable funds</small>
+        <hr>
+        <button type="button" class="btn btn-primary" (click)="setShow('add')" [disabled]="false"><i class="fas fa-plus"></i> Add</button>
+        <button type="button" class="btn btn-secondary" (click)="setShow('withdraw')" [disabled]="false"><i class="fas fa-minus"></i> Withdraw</button>
+        <div *ngIf="show('withdraw')">
+            <br>
+            <mat-form-field>
+                <input type="number" matInput [(ngModel)]="amount" placeholder="How much?">
+            </mat-form-field>
+            <br>
+            <button type="button" (click)="withdraw()" class="btn btn-primary">withdraw</button>
+        </div>
+        <div *ngIf="show('add')">
+            <br>
+            <mat-form-field>
+                <input type="number" matInput [(ngModel)]="amount" placeholder="How much?">
+            </mat-form-field>
+            <br>
+            <button type="button" (click)="add()" class="btn btn-primary">add</button>
+        </div>
+    </div>
+</div>
+<div class="card mb-4 box-shadow" *ngIf="_processing">
+    <mat-spinner></mat-spinner>
+</div>

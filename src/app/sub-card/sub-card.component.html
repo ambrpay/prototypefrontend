@@ -1,0 +1,39 @@
+<div *ngIf="!_waiting">
+    <mat-card *ngIf="_subscription">
+        <mat-card-header>
+            <img mat-card-avatar [src]="_provider?.picture"><img>
+
+            <mat-card-title>Issuer: {{_provider.name}}</mat-card-title>
+            <mat-card-subtitle>SubscriptionName: {{_provider.subscriptionName}} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                <p>
+                    <b>starts at:</b> {{_subscription.cycleStart}} <br>
+                    <b>Max amount:</b> {{_subscription.maxAmount}} <br>
+                    <b>Subscription cycle:</b> {{_subscription.subscriptionTimeFrame}} <br>
+                    <b>withdrawnAmount:</b> {{_subscription.withdrawnAmount}} <br>
+                    <b>active:</b> {{_subscription.approved}} <br>
+                </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button color="primary" (click)="activate()" *ngIf="!_subscription.approved" mat-button>Activate</button>
+            <button color="warn" (click)="deactivate()" *ngIf="_subscription.approved" mat-button>Deactivate</button>
+        </mat-card-actions>
+        <br>
+    </mat-card>
+</div>
+<div *ngIf="_waiting">
+    <mat-card *ngIf="_subscription">
+        <mat-card-header>
+            <img mat-card-avatar [src]="_provider?.picture"><img>
+
+            <mat-card-title>Issuer: {{_subscription.issuerName}}</mat-card-title>
+            <mat-card-subtitle>SubscriptionName: {{_subscription.subscriptionName}} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="halign">
+            <b>Waiting for Blockchain to confirm</b>
+            <mat-spinner></mat-spinner>
+        </mat-card-content>
+    </mat-card>
+</div>

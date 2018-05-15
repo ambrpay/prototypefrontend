@@ -1,0 +1,19 @@
+<div *ngIf="!_waiting" class="row" [ngClass]="{'text-muted': !_subscription?.approved }">
+    <div class="col-4">
+        &nbsp;&nbsp;<img class="rounded-circle" height="30px" [src]="_provider?.picture">&nbsp;&nbsp; {{_provider?.name}} subscription
+    </div>
+    <div class="col-4">
+        Next payment: {{_subscription?.nextPayment | date: 'dd.MM.yy hh:mm'}}
+    </div>
+    <div class="col-2">
+        {{_subscription?.maxAmount}} ETH / Month
+    </div>
+    <div class="col-1">
+        <button type="button" class="btn btn-primary" *ngIf="!_subscription?.approved" (click)="activate()">Activate</button>
+        <button type="button" class="btn btn-danger" *ngIf="_subscription?.approved" (click)="deactivate()">Deactivate</button>
+    </div>
+</div>
+<div class="card mb-4 box-shadow" *ngIf="_waiting">
+    <mat-spinner></mat-spinner>
+</div>
+<hr>

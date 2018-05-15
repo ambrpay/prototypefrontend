@@ -1,0 +1,13 @@
+<div class="card mb-4 box-shadow" *ngIf="!_processing">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6>Your Subscriptions</h6>
+    </div>
+    <br>
+    <div *ngFor="let isu of issuers">
+        <app-sub-card [issuer]="isu">
+        </app-sub-card>
+    </div>
+</div>
+<div *ngIf="_processing">
+    <mat-spinner></mat-spinner>
+</div>

@@ -1,0 +1,25 @@
+<div class="card mb-4 box-shadow">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6>Recent Activity</h6>
+    </div>
+    <div class="card-body" style="color: #222222">
+        <div *ngFor="let a of activites">
+            <div class="row">
+                <div class="col-3">
+                    {{a.date | date: 'dd.MM.yy hh:mm'}}
+                </div>
+                <div class="col-1">
+                    <i class="fas {{a.img}}"></i>
+                </div>
+                <div class="col-5">
+                    {{a.text}}
+                </div>
+                <div class="col-3">
+                    {{a.amount}} ETH
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    </div>
+</div>

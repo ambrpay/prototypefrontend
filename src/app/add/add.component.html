@@ -1,0 +1,41 @@
+<br>
+<div class="container ptxl mbl">
+    <div class="row">
+        <div class="col-2">
+            <img width="100%" [src]="_provider?.logoLarge">
+        </div>
+        <div class="col-8">
+        </div>
+        <div class="col-2">
+            &nbsp;
+        </div>
+    </div>
+    <hr>
+    <div class="row mtxl">
+        <div class="col-2">
+            &nbsp;
+        </div>
+        <div class="col-8 ">
+            <br>
+            <h1 class="mbxl">Set up your Smart Wallet</h1>
+            <br>
+            <p class="mbxl">
+                Send funds (ETH,NEO) to your Smart Wallet to start your subscription.
+                <br>You can access or retreive your funds at any time.
+            </p>
+            <br><br>
+            <p>Your monthly membership is billed on the first day of each billing period.</p>
+            <br>
+            <hr>
+            <div class="text-right" *ngIf="!_processing">
+                <button type="button" class="btn btn-primary" (click)="createSmartContract()">CREATE YOUR WALLET NOW</button>
+            </div>
+            <div *ngIf="_processing">
+                <mat-spinner></mat-spinner>
+            </div>
+        </div>
+        <div class="col-2">
+            &nbsp;
+        </div>
+    </div>
+</div>

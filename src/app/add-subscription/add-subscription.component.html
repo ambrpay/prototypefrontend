@@ -1,0 +1,29 @@
+<mat-card *ngIf="_provider">
+    <mat-card-header>
+        <img mat-card-avatar [src]="_provider?.picture"><img>
+
+        <mat-card-title>Issuer: {{_provider.name}}</mat-card-title>
+        <mat-card-subtitle>SubscriptionName: {{_provider.subscriptionName}} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            <p>
+                <b>Max amount:</b> {{_provider.amount}} <br>
+                <b>Subscription cycle:</b> {{_provider.timeframe}} <br>
+            </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button color="primary" (click)="accept()" mat-button>accept</button>
+        <button color="warn" (click)="decline()" mat-button>decline</button>
+    </mat-card-actions>
+    <br>
+</mat-card>
+<mat-card *ngIf="!_provider">
+    <mat-card-content>
+        <b>Not a valid provider Address please make sure you subscribe with the correct link</b>
+    </mat-card-content>
+    <mat-card-actions>
+        <button color="warn" (click)="decline()" mat-button>close</button>
+    </mat-card-actions>
+    <br>
+</mat-card>

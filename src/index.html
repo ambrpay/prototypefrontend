@@ -1,14 +1,32 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>SubscriptionApp</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+    <meta charset="utf-8">
+    <title>SubscriptionApp</title>
+    <base href="/">
+    <script>
+        window.addEventListener('load', function() {
+            if (typeof web3 !== 'undefined') {
+                web3js = new Web3(web3.currentProvider);
+                window.web3js = web3js;
+
+            } else {
+                console.log('No web3? You should consider trying MetaMask!')
+            }
+        })
+    </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
-<body>
-  <app-root></app-root>
+
+<body class="bg-light">
+    <app-base></app-base>
 </body>
+
 </html>
